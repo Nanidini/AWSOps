@@ -1,0 +1,12 @@
+---
+ vars:
+  instance_type: "t2.micro"
+  image: " ami-0233c2d874b811deb"
+  region: " us-east-2"
+  group: " WebServerSG"
+  count: 1
+  vpc_subnet_id: "subnet-3fb13854"
+  assign_public_ip: "yes"
+  aws_access_key: "AKIAT4RTAYCLIDFVM2ZH"
+  aws_secret_key: "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"
+

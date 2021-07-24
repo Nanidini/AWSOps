@@ -1,0 +1,25 @@
+---
+- name: create aws instance
+  hosts: localhost
+  tasks:     
+  - name: Include externalvars file for jinja variables
+    include_vars:
+      dir: /home/AWSOps/vars
+      files_matching: externalvars.yml
+  - name: create amazon ec2 instance
+    amazon.aws.ec2:
+       key_name: "{{key_value}}"
+       instance_type: "{{instance_type}}"
+       image: "{{image}}"
+       region: "{{region}}"
+       wait: yes
+       group: "{{group}}"
+       count: "{{count}}"
+       vpc_subnet_id: "{{vpc_subnet_id}}"
+       assign_public_ip: "{{assign_public_ip}}"
+       aws_access_key: "{{aws_access_key}}"
+       aws_secret_key: "{{aws_secret_key}}"
+       # register: instance_details
+       # - name: print details
+       # debug:
+       # var: instance_details    

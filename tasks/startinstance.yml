@@ -1,0 +1,16 @@
+---
+- name: Start instance
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: include startvars file for jinja variables
+      include_vars:
+        dir: /home/AWSOps/vars
+        files_matching: externalvars.yml       
+    - name: start ec2 instance
+      amazon.aws.ec2:
+        state: 'running'
+        region: "{{region}}"
+        instance_id: "{{instance_id}}"
+        aws_access_key: "{{aws_access_key}}"
+        aws_secret_key: "{{aws_secret_key}}"
