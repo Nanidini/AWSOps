@@ -1,11 +1,8 @@
----
-- name: create aws instance
-  hosts: localhost
-  tasks:     
-  - name: Include externalvars file for jinja variables
-    include_vars:
-      dir: /home/AWSOps/vars
-      files_matching: externalvars.yml
+--- 
+# - name: Include externalvars file for jinja variables
+#   include_vars:
+#     dir: /home/AWSOps/vars
+#     files_matching: externalvars.yml
   - name: create amazon ec2 instance
     amazon.aws.ec2:
        key_name: "{{key_value}}"

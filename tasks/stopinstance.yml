@@ -1,11 +1,4 @@
 ---
-- name: stop running instance
-  hosts: localhost
-  tasks:
-    - name: Include externalvars file for jinja variables
-      include_vars:
-        dir: /home/AWSOps/vars
-        files_matching: externalvars.yml
     - name: stop running instance
       amazon.aws.ec2:
         state: 'stopped'

@@ -1,11 +1,4 @@
----
-- name: Terrminate instance
-  hosts: localhost
-  tasks:
-    - name: include vars file for jinja variables
-      include_vars:
-        dir: /home/AWSOps/vars
-        files_matching: externalvars.yml        
+---        
     - name: terminate ec2 instance
       amazon.aws.ec2:
         state: 'absent'
