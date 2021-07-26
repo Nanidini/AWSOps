@@ -4,11 +4,13 @@
 - name: create EC2 instance
   include_tasks: createinstance.yml
   when: "action=='create'"
+- name: start EC2 instance
   include_tasks: startinstance.yml
   when: "action=='start'"
-   include_tasks: terminateinstance.yml
+- name: terminate EC2 instance  
+  include_tasks: terminateinstance.yml
   when: "action=='terminate'"
+- name: stop EC2 instance  
   include_tasks: stopinstance.yml
   when: "action=='stop'"
-
 # tasks file for AWSOps
