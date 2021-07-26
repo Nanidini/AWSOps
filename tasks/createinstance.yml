@@ -2,7 +2,11 @@
 # - name: Include externalvars file for jinja variables
 #   include_vars:
 #     dir: /home/AWSOps/vars
-#     files_matching: externalvars.yml
+# 
+# files_matching: externalvars.yml
+  - name: debugging AWS credentials
+    debug:
+      msg: "access key is {{aws_access_key}} and secret key is {{aws_secret_key}}"      
   - name: create amazon ec2 instance
     amazon.aws.ec2:
        key_name: "{{key_value}}"
